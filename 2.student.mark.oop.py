@@ -1,3 +1,10 @@
+class Student:
+    Id: int
+    Name: str
+    DoB: str
+    CoursesList: []
+
+
 Student = {
     "Id": "",
     "Name": "",
