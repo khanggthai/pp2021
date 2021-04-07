@@ -14,7 +14,8 @@ Mark = {
 }
 c1ass = []
 courses = []
-    
+
+
 def addstudentinfo(c1ass):
     print("Enter student info:")
     id = input("ID: ")
@@ -23,29 +24,33 @@ def addstudentinfo(c1ass):
     Student.update({"Name": name})
     dob = input("Date of birth:")
     Student.update({"DoB": dob})
-    student_copy= Student.copy()
+    student_copy = Student.copy()
     c1ass.append(student_copy)
     print("This student is added")
+
 
 def addcourseinfo(courses):
     print("Enter course info")
     id = input("ID:")
     Course.update({"Id": id})
     name = input("Name:")
-    Course.update({ "Name": name})
+    Course.update({"Name": name})
     course_copy = Course.copy()
     courses.append(course_copy)
     print("This course is added")
+
 
 def displaystudent(c1ass):
     print(f"There are {len(c1ass)} students.")
     for i in c1ass:
         print(i.get("Id") + " : " + i.get("Name"))
 
+
 def displaycourses(courses):
     print(f"There are {len(courses)} courses.")
     for s in courses:
         print(s.get("Id") + " : " + s.get("Name"))
+
 
 def enrollcourse(c1ass, courses):
     print("Which course are they enrolling for?")
@@ -76,17 +81,20 @@ def enrollcourse(c1ass, courses):
         print("0 : No one else.")
         displaystudent(c1ass)
         studentId = (str)(input())
-#a
+
+
+# a
 
 count1 = int(input("How many students"))
 for i in range(count1):
-    print("The student number", i+1,"information:")
+    print("The student number", i + 1, "information:")
     addstudentinfo(c1ass)
 
 count2 = int(input("How many courses?"))
 for i in range(count2):
-    print("The course number", i+1, "info:")
+    print("The course number", i + 1, "info:")
     addcourseinfo(courses)
+
 
 def options():
     print("""Choose?
