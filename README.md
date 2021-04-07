@@ -9,6 +9,6 @@ Students are expected to:
 Student Info
 =========================
 
-* Student Name: Nguyễn Khangg Thái
+* Student Name: Nguyễn Khang Thái
 * Student ID: BI10-158
 
