@@ -1,3 +1,7 @@
+import math
+import numpy
+
+
 class Student:
     Id: int
     Name: str
@@ -157,6 +161,9 @@ def searchId(list, id):
             print(i.getName())
             return i
 
+
+def markcal(student):
+    
 
 def enroll():
     displaycourses(courses)
