@@ -81,16 +81,7 @@ class Mark:
         self.Course = Course
         self.Student = Student
         self.Mark = -1.0
-
-    def setCourse(self, course):
-        self.Course = course
-
-    def setStudent(self, student):
-        self.Student = student
-
-    def setMark(self, mark):
-        self.Mark = mark
-
+        
     def getCourse(self):
         return self.Course
 
@@ -143,7 +134,7 @@ def display_courses(courses):
         s.toString()
 
 
-def searchId(list, id):
+def search(list, id):
     for i in list:
         if i.getId() == id:
             print(i.getName())
@@ -153,22 +144,22 @@ def searchId(list, id):
 def enroll():
     display_courses(courses)
     course = int(input("Which one?"))
-    foundCourse = searchId(courses, course)
+    Coursefound = search(courses, course)
 
     display_student(c1ass)
     student = int(input("Which student? "))
-    foundStudent = searchId(c1ass, student)
+    Studentfound = search(c1ass, student)
 
     mark = Mark(foundCourse, foundStudent)
-    foundCourse.c1ass.append(mark)
-    foundStudent.courses.append(mark)
+    Coursefound.c1ass.append(mark)
+    Studentfound.courses.append(mark)
 
 
 def mark_student():
     display_courses(courses)
     course = int(input("Which course? "))
     found = Course(0, "Null")
-    found = searchId(courses, course)
+    found = search(courses, course)
     for student in found.c1ass:
         print(f"Student: {student.Student}")
         mark = float(input("Input mark:"))
