@@ -81,7 +81,7 @@ class Mark:
         self.Course = Course
         self.Student = Student
         self.Mark = -1.0
-        
+
     def getCourse(self):
         return self.Course
 
@@ -117,7 +117,8 @@ def add_course_info(courses):
     print("Enter course info")
     id = int(input("ID:"))
     name = str(input("Name:"))
-    course = Course(id, name)
+    credit = int(input("Number of credit: "))
+    course = Course(id, name, credit)
     courses.append(course)
     print("This course is added")
 
