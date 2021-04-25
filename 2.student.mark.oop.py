@@ -10,15 +10,6 @@ class Student:
         self.DoB = dob
         self.courses = []
 
-    def setId(self, id):
-        self.Id = id
-
-    def setName(self, name):
-        self.Name = name
-
-    def setBoB(self, dob):
-        self.DoB = dob
-
     def getId(self):
         return int(self.Id)
 
@@ -30,18 +21,13 @@ class Student:
 
     def getMark(self):
         for mark in self.courses:
-            print(f"""
-                Course: {mark.Course}
-                Mark: {mark.Mark}
-            """)
+            print(f"Course: {mark.Course}")
+            print(f"Mark: {mark.Mark}")
 
     def toString(self):
-        print(f"""
-    Id: {self.getId()}
-    Name: {self.getName()}
-    DoB: {self.getDoB()}
-    Number of courses: {len(self.courses)}
-         """)
+        print(f"Id: {self.getId()}")
+        print(f"Name: {self.getName()}")
+        print(f"Courses: {len(self.courses)}")
 
 
 class Course:
@@ -68,17 +54,13 @@ class Course:
 
     def getMark(self):
         for mark in self.c1ass:
-            print(f"""
-                Student: {mark.Student}
-                Mark: {mark.Mark}
-            """)
+            print(f"Student: {mark.Student}")
+            print(f"Mark: {mark.Mark}")
 
     def toString(self):
-        print(f"""
-    Id: {self.getId()}
-    Name: {self.getName()}
-    Number of students: {len(self.c1ass)}
-        """)
+        print(f"Id: {self.getId()}")
+        print(f"Name: {self.getName()}")
+        print(f"Number of students: {len(self.c1ass)}")
 
 
 class Mark:
@@ -110,17 +92,15 @@ class Mark:
         return self.Mark
 
     def display4Course(self):
-        print(f"""
-            Student: {self.Student}
-            Mark: {self.Mark}
-        """)
+        print(f"Student: {self.Student}")
+        print(f"Mark: {self.Mark}")
 
 
 c1ass = []
 courses = []
 
 
-def addstudentinfo(c1ass):
+def add_student_info(c1ass):
     print("Enter student info:")
     id = int(input("ID: "))
     name = str(input("Name:"))
@@ -130,7 +110,7 @@ def addstudentinfo(c1ass):
     print("This student is added")
 
 
-def addcourseinfo(courses):
+def add_course_info(courses):
     print("Enter course info")
     id = int(input("ID:"))
     name = str(input("Name:"))
@@ -139,13 +119,13 @@ def addcourseinfo(courses):
     print("This course is added")
 
 
-def displaystudent(c1ass):
+def display_student(c1ass):
     print(f"There are {len(c1ass)} students.")
     for i in c1ass:
         i.toString()
 
 
-def displaycourses(courses):
+def display_courses(courses):
     print(f"The are {len(courses)} courses.")
     for s in courses:
         s.toString()
@@ -159,56 +139,52 @@ def searchId(list, id):
 
 
 def enroll():
-    displaycourses(courses)
+    display_courses(courses)
     course = int(input("Which one?"))
-    foundCourse = Course(0, "Null")
     foundCourse = searchId(courses, course)
-    while not foundCourse:
-        course = int(input("Try again? "))
-        foundCourse = searchId(courses, course)
 
-    displaystudent(c1ass)
+    display_student(c1ass)
     student = int(input("Which student? "))
-    foundStudent = Student(0, "Null", "Null")
     foundStudent = searchId(c1ass, student)
-    while not foundStudent:
-        student = int(input("Try again? "))
-        foundStudent = searchId(c1ass, student)
 
     mark = Mark(foundCourse, foundStudent)
     foundCourse.c1ass.append(mark)
     foundStudent.courses.append(mark)
 
 
-def markStudent():
-    course = int(input("Which course do you want to give marks? "))
-    foundCourse = Course(0, "Null")
-    foundCourse = searchId(courses, course)
-    while not foundCourse:
-        course = int(input("Course not found! Try again? "))
-        foundCourse = searchId(courses, course)
-
-    for student in foundCourse.c1ass:
+def mark_student():
+    display_courses(courses)
+    course = int(input("Which course? "))
+    found = Course(0, "Null")
+    found = searchId(courses, course)
+    for student in found.c1ass:
         print(f"Student: {student.Student}")
-        mark = float(input("Input mark for this student: "))
+        mark = float(input("Input mark:"))
         student.Mark = mark
 
 
+def display_marks(c1ass, courses):
+    for c in courses:
+        print(f"In course number {courses[c-1]}:")
+        for student in c1ass:
+            print(f"Student {student.name} has scored {student.Mark}")
 # a
 
-count1 = int(input("How many students are in the class?"))
+
+count1 = int(input("How many students?"))
 for i in range(count1):
     print("The student number", i + 1, "information:")
-    addstudentinfo(c1ass)
+    add_student_info(c1ass)
 
 count2 = int(input("How many courses?"))
 for i in range(count2):
     print("The course number", i + 1, "info:")
-    addcourseinfo(courses)
+    add_course_info(courses)
 
 
 def options():
-    print("""Choose?
+    print("""
+    Choose?
     1. Add a student
     2. Add a course
     3. List students in class
@@ -225,17 +201,17 @@ def student_management():
     while True:
         option = options()
         if option == 1:
-            addstudentinfo(c1ass)
+            add_student_info(c1ass)
         elif option == 2:
-            addcourseinfo(courses)
+            add_course_info(courses)
         elif option == 3:
-            displaystudent(c1ass)
+            display_student(c1ass)
         elif option == 4:
-            displaycourses(courses)
+            display_courses(courses)
         elif option == 5:
             enroll()
         elif option == 6:
-            markStudent()
+            mark_student()
         else:
             print("Try again")
 
