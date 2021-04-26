@@ -1,5 +1,4 @@
 import math
-import numpy
 import curses
 
 
@@ -49,6 +48,7 @@ class Course:
     def __init__(self, id, name):
         self.Id = id
         self.Name = name
+        self.Credit = credit
         self.c1ass = []
 
     def getId(self):
@@ -168,10 +168,9 @@ def mark_student():
 
 
 def display_marks(c1ass, courses):
-    for c in courses:
-        print(f"In course number {courses[c-1]}:")
-        for student in c1ass:
-            print(f"Student {student.name} has scored {student.Mark}")
+    GPA_sort(c1ass)
+    for student in c1ass:
+        print(f"Student {student.Name} has scored {student.Mark}")
 
 
 def GPA_calculate(student):
@@ -183,11 +182,18 @@ def GPA_calculate(student):
     student.GPA = math.floor(10*gpa)/10
 
 
+def GPA_sort(c1ass):
+    for i in range(len(c1ass)-1):
+        for j in range(len(c1ass) - i - 1):
+            if student[i].GPA() < student[j +1].GPA():
+                student[j], student[j+1] = student[j + 1], student[j]
+
+
 def display_GPA(c1ass, courses):
     for c in courses:
         print(f"In course number {courses[c-1]}:")
         for student in c1ass:
-            print(f"Student {student.name} has scored {student.GPA}")
+            print(f"Student {student.Name} has scored {student.GPA}")
 # a
 
 
