@@ -1,5 +1,6 @@
 import math
 import curses
+from operator import attrgetter
 
 
 class Student:
@@ -45,7 +46,7 @@ class Course:
     Credit: int
     c1ass: []
 
-    def __init__(self, id, name):
+    def __init__(self, id, name, credit):
         self.Id = id
         self.Name = name
         self.Credit = credit
@@ -151,7 +152,7 @@ def enroll():
     student = int(input("Which student? "))
     Studentfound = search(c1ass, student)
 
-    mark = Mark(foundCourse, foundStudent)
+    mark = Mark(Coursefound, Studentfound)
     Coursefound.c1ass.append(mark)
     Studentfound.courses.append(mark)
 
@@ -159,7 +160,7 @@ def enroll():
 def mark_student():
     display_courses(courses)
     course = int(input("Which course? "))
-    found = Course(0, "Null")
+    found = Course(0, "Null", 0)
     found = search(courses, course)
     for student in found.c1ass:
         print(f"Student: {student.Student}")
@@ -179,14 +180,11 @@ def GPA_calculate(student):
     for course in student.c1ass:
         Student_Mark = Student_Mark + (course.Mark * course.Credit)
         Course_Credit = Course_Credit + course.Credit
-    student.GPA = math.floor(10*gpa)/10
+    student.GPA = math.floor(Student_Mark / Course_Credit)
 
 
-def GPA_sort(c1ass):
-    for i in range(len(c1ass)-1):
-        for j in range(len(c1ass) - i - 1):
-            if student[i].GPA() < student[j +1].GPA():
-                student[j], student[j+1] = student[j + 1], student[j]
+def GPA_sort(c1ass, Student):
+    sorted(student, key= attrgetter("GPA"))
 
 
 def display_GPA(c1ass, courses):
