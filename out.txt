@@ -1,0 +1,13 @@
+total 72
+drwxr-xr-x  12 khangthainguyen  admin   384 Apr 28 10:49 .
+drwxr-xr-x   4 khangthainguyen  admin   128 Apr 26 03:46 ..
+-rw-r--r--   1 khangthainguyen  admin  6148 Apr 26 03:46 .DS_Store
+drwxr-xr-x  15 khangthainguyen  admin   480 Apr 28 10:09 .git
+-rw-r--r--@  1 khangthainguyen  admin  2622 Apr 25 17:37 1.student.mark.py
+-rw-r--r--@  1 khangthainguyen  admin  4737 Apr 26 02:08 2.student.mark.oop.py
+-rw-r--r--@  1 khangthainguyen  admin  5517 Apr 28 10:09 3.student.mark.oop.math.py
+-rw-r--r--   1 khangthainguyen  admin    97 Apr 28 10:49 6.shell.py
+-rwxr-xr-x   1 khangthainguyen  admin   340 Apr 26 03:46 README.md
+-rw-r--r--   1 khangthainguyen  admin     0 Apr 28 10:49 out.txt
+drwxr-xr-x   6 khangthainguyen  admin   192 Apr 26 03:46 pw4
+drwxr-xr-x   8 khangthainguyen  admin   256 Apr 26 03:46 pw5
